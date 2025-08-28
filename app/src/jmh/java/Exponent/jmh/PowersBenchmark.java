@@ -17,35 +17,54 @@ public class PowersBenchmark {
 
   @Param(
     {
-      "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
-      // "10",
-      // "11",
-      // "12",
-      // "13",
-      // "14",
-      // "15",
-      // "16",
-      // "17",
-      // "18",
-      // "19",
-      // "20",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
     }
   )
   public int base;
 
   @Param(
     {
-      "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-      // "11",
-      // "12",
-      // "13",
-      // "14",
-      // "15",
-      // "16",
-      // "17",
-      // "18",
-      // "19",
-      // "20",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
     }
   )
   public int power;
@@ -56,17 +75,18 @@ public class PowersBenchmark {
     int output = math.naivePower(base, power);
     bh.consume(output);
   }
-  // @Benchmark
-  // public void inoptimalMathBenchmark(Blackhole bh) {
-  //   Powers math = new Powers();
-  //   int output = math.unoptimizedPower(base, power);
-  //   bh.consume(output);
-  // }
 
-  // @Benchmark
-  // public void optimalMathBenchmark(Blackhole bh) {
-  //   Powers math = new Powers();
-  //   int output = math.optimizedPower(base, power);
-  //   bh.consume(output);
-  // }
+  @Benchmark
+  public void inoptimalMathBenchmark(Blackhole bh) {
+    Powers math = new Powers();
+    int output = math.unoptimizedPower(base, power);
+    bh.consume(output);
+  }
+
+  @Benchmark
+  public void optimalMathBenchmark(Blackhole bh) {
+    Powers math = new Powers();
+    int output = math.optimizedPower(base, power);
+    bh.consume(output);
+  }
 }
